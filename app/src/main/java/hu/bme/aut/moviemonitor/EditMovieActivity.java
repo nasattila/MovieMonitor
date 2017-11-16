@@ -65,9 +65,12 @@ public class EditMovieActivity extends AppCompatActivity
         Intent intentResult = new Intent();
 
         getRealm().beginTransaction();
+
         viewMovie.setTitle(titleText.getText().toString());
         viewMovie.setReview(reviewText.getText().toString());
         viewMovie.setRating(ratingBar.getRating());
+
+        getRealm().commitTransaction();
 
         intentResult.putExtra(KEY_ITEM, viewMovie.getMovieID());
         setResult(RESULT_OK, intentResult);
