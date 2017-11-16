@@ -33,7 +33,6 @@ import io.realm.Realm;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
 {
     public static final String KEY_ITEM_ID = "KEY_ITEM_ID";
-    public static final int REQUEST_CODE_VIEW = 101;
 
     private static MoviesToWatchRecyclerAdapter toWatchRecyclerAdapter;
     private RecyclerView recyclerList;
@@ -119,7 +118,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         startView.putExtra(KEY_ITEM_ID, itemID);
 
-        startActivityForResult(startView, REQUEST_CODE_VIEW);
+        startActivity(startView);
     }
 
     private Realm getRealm()
