@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private static MoviesToWatchRecyclerAdapter toWatchRecyclerAdapter;
     private RecyclerView recyclerList;
+    private NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -109,7 +110,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
 
+        this.navigationView = navigationView;
+
         navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setCheckedItem(R.id.nav_to_watch);
     }
 
     public void openViewActivity(int index, String itemID)
@@ -254,11 +258,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         {
             Intent startView = new Intent(this, ViewWatchedActivity.class);
 
-            startActivityForResult(startView, REQUEST_CODE_VIEW);
+            startActivity(startView);
         }
         else if (id == R.id.nav_to_watch)
         {
         }
+
+        navigationView.setCheckedItem(R.id.nav_to_watch);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
