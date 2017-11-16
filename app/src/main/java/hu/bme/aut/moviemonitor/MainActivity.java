@@ -37,7 +37,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private static MoviesToWatchRecyclerAdapter toWatchRecyclerAdapter;
     private RecyclerView recyclerList;
-    private NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -109,8 +108,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-
-        this.navigationView = navigationView;
 
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setCheckedItem(R.id.nav_to_watch);
@@ -263,8 +260,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         else if (id == R.id.nav_to_watch)
         {
         }
-
-        navigationView.setCheckedItem(R.id.nav_to_watch);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
